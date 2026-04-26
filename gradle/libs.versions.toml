@@ -13,7 +13,7 @@ postgresql = "42.7.4"
 micrometer = "1.14.3"
 nimbus-jose = "9.47"
 jspecify = "1.0.0"
-bouncycastle = "1.84"
+bouncycastle = { strictly = "1.84" }
 
 [libraries]
 # Security
