@@ -13,8 +13,11 @@ postgresql = "42.7.4"
 micrometer = "1.14.3"
 nimbus-jose = "9.47"
 jspecify = "1.0.0"
+bouncycastle = "1.84"
 
 [libraries]
+# Security
+bouncycastle-bcprov = { group = "org.bouncycastle", name = "bcprov-jdk18on", version.ref = "bouncycastle" }
 # BOMs
 spring-boot-bom = { group = "org.springframework.boot", name = "spring-boot-dependencies", version.ref = "springBoot" }
 spring-cloud-bom = { group = "org.springframework.cloud", name = "spring-cloud-dependencies", version.ref = "springCloud" }
