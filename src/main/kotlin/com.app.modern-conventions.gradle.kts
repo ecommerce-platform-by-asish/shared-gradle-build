@@ -45,5 +45,13 @@ spotless {
 tasks.named("check") {
     dependsOn("spotlessCheck")
 }
-// Note: repositories are managed centrally via dependencyResolutionManagement in settings.gradle.kts
-// Do NOT add a repositories {} block here — it would override the settings-level declarations.
+
+// Global resolution strategy to fix vulnerabilities like CVE-2026-0636
+configurations.all {
+    resolutionStrategy.eachDependency {
+        if (requested.group == "org.bouncycastle" && requested.name.startsWith("bcprov")) {
+            useVersion(libs.versions.bouncycastle.get().toString())
+            because("Force upgrade to resolve CVE-2026-0636")
+        }
+    }
+}
