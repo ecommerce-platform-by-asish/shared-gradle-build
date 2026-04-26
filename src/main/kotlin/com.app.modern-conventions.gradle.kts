@@ -50,7 +50,7 @@ tasks.named("check") {
 configurations.all {
     resolutionStrategy.eachDependency {
         if (requested.group == "org.bouncycastle" && requested.name.startsWith("bcprov")) {
-            useVersion(libs.versions.bouncycastle.get().toString())
+            useVersion("1.84")
             because("Force upgrade to resolve CVE-2026-0636")
         }
     }
